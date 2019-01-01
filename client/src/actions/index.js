@@ -1,8 +1,4 @@
 import axios from 'axios'
-import {FETCH_USER} from './types'
-const fetchUser = () =>{
-axios.get('/api/current_user')
-
-
-
-}
+import { FETCH_USER } from './types'
+export const fetchUser = () => async dispatch =>
+  dispatch({ type: FETCH_USER, playload: (await axios.get('/api/current_user')).data })
