@@ -6,9 +6,9 @@ class Header extends Component {
       case null:
         return 'Still deciding'
       case false:
-        return 'im logged out'
+        return <li><a href="/auth/google">Login With Google</a></li>
       default:
-        return 'im logged in'
+        return <li><a href="/api/logout">Logout</a></li>
     }
   }
 
