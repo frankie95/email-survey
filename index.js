@@ -14,12 +14,12 @@ app.use(
 )
 app.use(passport.initialize())
 app.use(passport.session())
-
+require('./models/User')
+require('./models/Survey')
 require('./routes/authRoutes')(app)
 require('./routes/billingRoutes')(app)
 require('./routes/surveyRoutes')(app)
-require('./models/User')
-require('./models/Survey')
+
 
 mongoose.connect(
   keys.mongoURI,
