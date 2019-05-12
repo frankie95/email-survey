@@ -13,3 +13,12 @@ export const handleToken = token => async dispatch => {
     playload: res.data
   })
 }
+
+export const submitSurvey = (values,history)=>async dispatch => {
+  const res = await axios.post('/api/surveys', values)
+  history.push('/surveys')
+  dispatch({
+    type: FETCH_USER,
+    playload: (await axios.get('/api/current_user')).data
+  })
+}
