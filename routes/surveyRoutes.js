@@ -32,7 +32,7 @@ module.exports = app => {
         Survey.updateOne({
           _id: surveyId,
           recipients: {
-            $eleMatch: { email: email, responded: false }
+            $elemMatch: { email: email, responded: false }
           }
         }, {
             $inc: { [choice]: 1 },
